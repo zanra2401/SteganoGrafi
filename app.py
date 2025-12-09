@@ -59,7 +59,8 @@ elif mode == "Decode":
 
     if uploaded is not None:
         file_bytes = np.asarray(bytearray(uploaded.read()), dtype=np.uint8)
-        img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR_RGB)
+        img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         st.image(img, caption="Gambar Stego", use_column_width=True)
 
