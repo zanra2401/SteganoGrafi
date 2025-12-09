@@ -85,7 +85,8 @@ else:
             st.error("Upload kedua gambar terlebih dahulu!")
         else:
             file_bytes1 = np.asarray(bytearray(uploaded1.read()), dtype=np.uint8)
-            img1 = cv2.imdecode(file_bytes1, cv2.IMREAD_COLOR_RGB)
+            img1 = cv2.imdecode(file_bytes1, cv2.IMREAD_COLOR)
+            img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
 
             file_bytes2 = np.asarray(bytearray(uploaded2.read()), dtype=np.uint8)
             img2 = cv2.imdecode(file_bytes2, cv2.IMREAD_COLOR)
