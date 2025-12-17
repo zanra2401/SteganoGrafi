@@ -23,7 +23,7 @@ if mode == "Encode":
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-        st.image(img, caption="Gambar Cover", use_column_width=True)
+        st.image(img, caption="Gambar Cover")
 
     if st.button("Encode Pesan"):
         if uploaded is None:
@@ -38,7 +38,7 @@ if mode == "Encode":
 
                 stego_rgb = cv2.cvtColor(stego_img, cv2.COLOR_BGR2RGB)
 
-                st.image(stego_rgb, caption="Gambar Stego", use_column_width=True)
+                st.image(stego_rgb, caption="Gambar Stego")
 
                 # Convert ke file downloadable
                 _, buffer = cv2.imencode(".png", stego_img)
@@ -62,7 +62,7 @@ elif mode == "Decode":
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-        st.image(img, caption="Gambar Stego", use_column_width=True)
+        st.image(img, caption="Gambar Stego")
 
     if st.button("Decode Pesan"):
         if uploaded is None:
